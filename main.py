@@ -53,6 +53,23 @@ def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
     else:
         print('File is smaller than or equal to chunk size, not splitting file')
 
+def file_join(og_filename):
+    """Joins split files back together.
+    Args:
+        op_filename:    The file name of the original file, used to make all other file names.
+    """
+    path_part_index=f'{og_filename}.csv'
+    if os.path.isfile(path_part_index)==True:
+        with open(path_part_index,newline='') as part_index:
+            reader=csv.reader(part_index)
+            part_index=list(reader)
+    path_tar_index=f'{og_filename}.tar.csv'
+    if os.path.isfile(path_tar_index)==True:
+        with open(path_tar_index,newline='') as tar_index:
+            reader=csv.reader(tar_index)
+            tar_index=list(reader)
+    
+
 # Example usage:
 file_path='django_logo.png' # input file path
 # chunk_size=1024*1024*50 # 50MB i think
