@@ -5,9 +5,9 @@ import argparse
 import pathlib
 
 # argparse setup
-path=''
-mode=''
-size=1024*1024*50
+path=pathlib.Path()
+mode=str()
+size=int()
 parser=argparse.ArgumentParser( # most of this is just taken directly from the documentation
                     prog='file-breaker-cli',
                     usage='%(prog)s [options]', # smarter code than I, now don't quote me on that
