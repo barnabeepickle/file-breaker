@@ -1,7 +1,7 @@
 """CLI tool for splitting files, compressing them and reassembling them"""
 # imports
 import os
-import argparse
+#import argparse
 import tarfile
 import csv
 
@@ -53,7 +53,7 @@ def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
     else:
         print('File is smaller than or equal to chunk size, not splitting file')
 
-def list_to_str(item):
+def list_to_str(item): # intended to be used internally though I might make it a mini-lib
     """Converts an entry (usally from a list) into a valid string.
     Args:
         item (list, str): The input variable to convert to a valid string.
