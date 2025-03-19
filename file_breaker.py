@@ -1,9 +1,10 @@
-"""CLI tool for splitting files, compressing them and reassembling them"""
+"""A python library for splitting a file into segments and reassembling them."""
+# TODO: figure out why pylint doesn't like the first line of this file
 # imports
 import os
-#import argparse
 import tarfile
 import csv
+from convert_str import convert_str as list_to_str # TODO: rename all list_to_str() uses to convert_str()
 
 # func
 def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=True):
@@ -14,7 +15,7 @@ def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
         compress:       Bool, if part files should be compressed.
         build_csv:      Bool, if .csv files should be created for putting parts back together.
         remove_part:    Bool, if divided part files should be removed once compressed
-    """
+    """ # TODO: figure out how to do docstrings better
     if not os.path.getsize(input_file)<=chunk_size or os.path.getsize(input_file)==chunk_size: 
         if build_csv==True: # sets up .csv files (the indexes as labled in the code) that contain file names for rebuilding files
             part_csv=open(f'{input_file}.csv','a',newline='')
@@ -53,24 +54,12 @@ def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
     else:
         print('File is smaller than or equal to chunk size, not splitting file')
 
-def list_to_str(item): # intended to be used internally though I might make it a mini-lib
-    """Converts an entry (usally from a list) into a valid string.
-    Args:
-        item (list, str): The input variable to convert to a valid string.
-    Returns:
-        str: The outputted valid string.
-    """
-    item=str(item)
-    item=item.strip(',[]') # strip normal stuff
-    item=item.strip('"') # strip double quotes
-    item=item.strip("'") # strip single quotes
-    return item
-
 def file_join(og_filename):
     """Joins split files back together.
     Args:
         og_filename:    The file name of the original file, used to make all other file names.
     """
+    # TODO: add code comments to this function
     path_part_index=f'{og_filename}.csv'
     if os.path.isfile(path_part_index)==True:
         with open(path_part_index,newline='') as part_index:
@@ -98,9 +87,11 @@ def file_join(og_filename):
         os.remove(list_to_str(part_index[x]))
     del(x,part_path)
 
+# TODO: Convert these two functions into a class, maybe
+
 # testing usage:
-file_path='django_logo.png' # input file path
+#file_path='django_logo.png' # input file path
 # chunk_size=1024*1024*50 # 50MB i think
-chunk_size=100000 # testing file size
-file_split(file_path,chunk_size)
-file_join(file_path)
+#chunk_size=100000 # testing file size input
+#file_split(file_path,chunk_size)
+#file_join(file_path)
