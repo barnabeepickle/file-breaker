@@ -54,8 +54,16 @@ def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
         print('File is smaller than or equal to chunk size, not splitting file')
 
 def list_to_str(item):
+    """Converts an entry (usally from a list) into a valid string.
+    Args:
+        item (list, str): The input variable to convert to a valid string.
+    Returns:
+        str: The outputted valid string.
+    """
     item=str(item)
-    item=item.strip('\'",[]')
+    item=item.strip(',[]') # strip normal stuff
+    item=item.strip('"') # strip double quotes
+    item=item.strip("'") # strip single quotes
     return item
 
 def file_join(og_filename):
@@ -84,11 +92,13 @@ def file_join(og_filename):
         for x in range(0,len(part_index)):
             part_path=list_to_str(part_index[x])
             with open(part_path,'rb') as current_file:
-                final_file.write(current_file)
-            os.remove(part_index[x])
+                final_file.write(current_file.read())
+    x=0
+    for x in range(0,len(part_index)):
+        os.remove(list_to_str(part_index[x]))
     del(x,part_path)
 
-# Example usage:
+# testing usage:
 file_path='django_logo.png' # input file path
 # chunk_size=1024*1024*50 # 50MB i think
 chunk_size=100000 # testing file size
