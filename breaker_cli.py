@@ -5,9 +5,6 @@ import argparse
 import pathlib
 
 # argparse setup
-path=pathlib.Path()
-mode=str()
-size=int()
 parser=argparse.ArgumentParser( # most of this is just taken directly from the documentation
                     prog='file-breaker-cli',
                     usage='%(prog)s [options]', # smarter code than I, now don't quote me on that
@@ -15,20 +12,17 @@ parser=argparse.ArgumentParser( # most of this is just taken directly from the d
                     epilog='"AS IS", WITHOUT WARRANTY')
 parser.add_argument('input_path',
                     type=pathlib.Path,
-                    help='Path to the input file.',
-                    namespace=path)
+                    help='Path to the input file.')
 parser.add_argument('mode',
                     type=str,
-                    help='If the input file should be broken or reassembled',
-                    namespace=mode)
-mode=mode.lower()
+                    help='If the input file should be broken or reassembled')
 parser.add_argument('-s', '--size',
                     type=int,
                     help='Specify the size in bytes of the output file.',
-                    default=1024*1024*50,
-                    namespace=size)
+                    default=1024*1024*50)
 parser.add_argument('-c','-csv',
                     help='Disable the need for a CSV file (generates index on demand).',
                     action='store_true')
+parser.parse_args()
 
 # code
