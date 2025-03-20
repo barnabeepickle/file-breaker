@@ -7,7 +7,8 @@ import pathlib
 # argparse setup
 parser=argparse.ArgumentParser( # most of this is just taken directly from the documentation
                     prog='file-breaker-cli',
-                    usage='%(prog)s [options]', # smarter code than I, now don't quote me on that
+                    usage='%(prog)s [options]', # smarter code than I, now don't quote me on that, 
+                    # maybe quote me on that, this code comment has gone on long enough!
                     description='A CLI interface for breaking files into segments.',
                     epilog='"AS IS", WITHOUT WARRANTY')
 parser.add_argument('input_path',
@@ -23,6 +24,7 @@ parser.add_argument('-s', '--size',
 parser.add_argument('-c','-csv',
                     help='Disable the need for a CSV file (generates index on demand).',
                     action='store_true')
-parser.parse_args()
+parser.parse_args() # TODO: implement this correctly
 
 # code
+# TODO: write the code that goes here
