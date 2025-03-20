@@ -21,11 +21,14 @@ parser.add_argument('mode',
                     type=str,
                     help='If the input file should be broken or reassembled',
                     namespace=mode)
+mode=mode.lower()
 parser.add_argument('-s', '--size',
                     type=int,
                     help='Specify the size in bytes of the output file.',
                     default=1024*1024*50,
                     namespace=size)
-mode=mode.lower()
+parser.add_argument('-c','-csv',
+                    help='Disable the need for a CSV file (generates index on demand).',
+                    action='store_true')
 
 # code
