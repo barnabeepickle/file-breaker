@@ -7,7 +7,7 @@ import csv
 from convert_str import convert_str as list_to_str # TODO: rename all list_to_str() uses to convert_str()
 
 # func
-def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=True):
+def file_break(input_file,chunk_size,compress=True,build_csv=True,remove_part=True):
     """Splits a file into smaller chunks by size.
     Args:
         input_file: Path to the input file.
@@ -34,7 +34,8 @@ def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
                 with open(output_file,'wb') as outfile: # creates the new seperated "part" files
                     outfile.write(chunk)
                 if build_csv==True: # writes the file name for the part to the part index
-                    part_index.writerow([output_file])
+                    part_index.writerow([output_file]) # for the file name to be valid it needs to 
+                    # be refered to as a list here in the code when writting the value
                 if compress==True: # this section of code handles compressing the part files
                     try: # use try to check if a tar file is there, will try to open it if so
                         tar=tarfile.open(f'{output_file}.tar','x:xz')
@@ -54,7 +55,7 @@ def file_split(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
     else:
         print('File is smaller than or equal to chunk size, not splitting file')
 
-def file_join(og_filename):
+def file_build(og_filename):
     """Joins split files back together.
     Args:
         og_filename:    The file name of the original file, used to make all other file names.
@@ -87,11 +88,51 @@ def file_join(og_filename):
         os.remove(list_to_str(part_index[x]))
     del(x,part_path)
 
-# TODO: Convert these two functions into a class, maybe
+def index_gen(file_path):
+    """Builds and index automatically.
+    Args:
+        file_path:  The file name of the original file before being broken, used to make find all other files.
+    Returns:
+        bool:       Bool to represent if a new part_index file was created.
+        bool:       Bool to represent if a new tar_index file was created.
+    """
+    # index csv file setup
+    # part_index csv file setup
+    part_new=False
+    if os.path.isfile(f'{file_path}.csv')==False:
+        part_csv=open(f'{file_path}.csv','a',newline='')
+    else:
+        part_csv=open(f'{file_path}.new.csv','a',newline='')
+        part_new=True
+    part_index=csv.writer(part_csv,delimiter=' ',quotechar='|',quoting=csv.QUOTE_MINIMAL)
+    # tar_index csv file setup
+    tar_new=False
+    if os.path.isfile(f'{file_path}.tar.csv')==False:
+        tar_csv=open(f'{file_path}.tar.csv','a',newline='')
+    else:
+        tar_csv=open(f'{file_path}.tar.new.csv','a',newline='')
+        tar_new=True
+    tar_index=csv.writer(tar_csv,delimiter=' ',quotechar='|',quoting=csv.QUOTE_MINIMAL)
+    # file finding loop
+    x=1
+    current_file=f'{file_path}.part_{x}'
+    current_tarfile=f'{current_file}.tar'
+    while os.path.isfile(current_tarfile)==True:
+        print(x)
+        part_index.writerow([current_file]) #   same as in file_break these need
+        tar_index.writerow([current_tarfile]) # to be weird lists when written
+        x+=1
+        current_file=f'{file_path}.part_{x}'
+        current_tarfile=f'{current_file}.tar'
+    del(x)
+    return part_new,tar_new
+
+# TODO: Convert these functions into a class, maybe
 
 # testing usage:
-#file_path='django_logo.png' # input file path
+#file_path='test.png' # input file path
 # chunk_size=1024*1024*50 # 50MB i think
 #chunk_size=100000 # testing file size input
-#file_split(file_path,chunk_size)
-#file_join(file_path)
+#file_break(file_path,chunk_size)
+#file_build('test.png')
+#index_gen('test.png')
