@@ -1,6 +1,6 @@
 """The CLI interface for file-breaker."""
 # imports
-import file_breaker
+import file_breaker as breaker
 import argparse
 import pathlib
 
@@ -8,7 +8,8 @@ import pathlib
 default_size=1024*1024*50
 
 # argparse setup
-mode_key={'break':0,'build':1}
+modes=['break','build','gen']
+mode_key={'break':0,'build':1,'gen':2}
 # setup the program/parser/wrapper
 parser=argparse.ArgumentParser( # most of this is just taken directly from the documentation
                     prog='file-breaker-cli',
@@ -22,7 +23,7 @@ parser.add_argument('input_path',
                     help='Path to the input file.')
 parser.add_argument('mode',
                     type=str,
-                    choices=['break','build'],
+                    choices=modes,
                     help='If the input file should be broken or reassembled')
 parser.add_argument('-s', '--size',
                     type=int,
@@ -39,9 +40,26 @@ parser.parse_args(args=['mode'],namespace=mode)
 mode=mode_key[mode]
 size=default_size
 parser.parse_args(args=['-s','--size'],namespace=size)
-index_gen=False
-parser.parse_args(args=['-c','--csv'],namespace=index_gen)
+gen_index=False
+parser.parse_args(args=['-c','--csv'],namespace=gen_index)
 # i don't know how to write good argparse .parse_args() code
 
 # code
-# TODO: write the code that goes here
+if mode==2: # part of the mode==2 additions to gen_index
+    gen_index=True
+if gen_index==True: # handles the -c, --csv, gen_index or mode==2 args
+    overrides=breaker.index_gen(path)
+    if overrides[0]==True:
+        part_override=f'{path}.new'
+        if mode==2:
+            print(f'The new part index file has been generated with the name: {part_override}')
+    if overrides[1]==True:
+        tar_override=f'{path}.new'
+        if mode==2:
+            print(f'The new tar index file has been generated with the name: {tar_override}')
+    if mode==2:
+        print('The new index files have been generated correctly.')
+if mode==0:
+    breaker.file_break() # TODO
+elif mode==1:
+    breaker.file_build() # TODO
