@@ -55,19 +55,27 @@ def file_break(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
     else:
         print('File is smaller than or equal to chunk size, not splitting file')
 
-def file_build(og_filename):
+def file_build(og_filename,part_csv_overide='null',tar_csv_overide='null'):
     """Joins split files back together.
     Args:
-        og_filename:    The file name of the original file, used to make all other file names.
+        og_filename:        The file name of the original file, used to make all other file names.
+        part_csv_overide:   Overides the csv filename for the part index, can't be a value of 'null'.
+        tar_csv_overide:    Overides the csv filename for the tar index, can't be a value of 'bull'.
     """
     # TODO: add code comments to this function
-    path_part_index=f'{og_filename}.csv'
-    if os.path.isfile(path_part_index)==True:
+    if part_csv_overide=='null': # can't have the overide values default to the filename so this was my solution
+        path_part_index=f'{og_filename}.csv'
+    else:
+        path_part_index=part_csv_overide
+    if os.path.isfile(path_part_index)==True: # part_index file setup
         with open(path_part_index,newline='') as part_index:
             reader=csv.reader(part_index)
             part_index=list(reader)
-    path_tar_index=f'{og_filename}.tar.csv'
-    if os.path.isfile(path_tar_index)==True:
+    if tar_csv_overide=='null': # same as for the other overide
+        path_tar_index=f'{og_filename}.tar.csv'
+    else:
+        path_tar_index=tar_csv_overide
+    if os.path.isfile(path_tar_index)==True: # tar_index file setup
         with open(path_tar_index,newline='') as tar_index:
             reader=csv.reader(tar_index)
             tar_index=list(reader)
