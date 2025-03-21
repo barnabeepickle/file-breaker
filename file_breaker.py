@@ -4,7 +4,11 @@
 import os
 import tarfile
 import csv
-from convert_str import convert_str as list_to_str # TODO: rename all list_to_str() uses to convert_str()
+from convert_str import convert_str as list_to_str 
+# TODO: rename all list_to_str() to convert_str() becuase that old name kind of sucks
+
+# you probably shouldn't uses this in production (i made this in like a week) 
+# and if you still want to use it in production take a look over it (submit changes if you have fixes)
 
 # func
 def file_break(input_file,chunk_size,compress=True,build_csv=True,remove_part=True):
