@@ -11,7 +11,7 @@ jobs:
       - name: insall the one and only dependency
         run: pip install pillow
       - name: run the script
-        run: python ./resources/logo.py
+        run: python resources/logo.py
       - name: switching from HTTPS to SSH
         run: git remote set-url origin ${{ secrets.ssh }}
       - name: check for changes
