@@ -26,8 +26,7 @@ def add_corners(im, rad): # stolen from stackoverflow 11287402 # work smarter no
 def add_center_text(im,in_text): # not stolen, written from scratch
     x,y=im.size
     font=ImageFont.truetype('resources/Audiowide/Audiowide-Regular.ttf',half,0,'unic')
-    txt=ImageDraw.ImageDraw.text((x,y),in_text,'#f0ffff',font,'mm',4,'Center','rtl','None','en',0,'#f0ffff',False,12)
-    im.paste(txt,(0,0))
+    im.ImageDraw.text((x,y),in_text,'#f0ffff',font,'mm',font_size=12)
     return im
     
 def square_maker(filename,hex,s_size,s_rad,in_text=''):
@@ -38,9 +37,9 @@ def square_maker(filename,hex,s_size,s_rad,in_text=''):
         square.save(f'{filename}.png')
 
 # code
-square_maker('square1','#818589',sub_size,rad,'')
-square_maker('square2','#7a7a7a',sub_size,rad,'')
-square_maker('square3','#737373',sub_size,rad,'')
+square_maker('square1','#818589',sub_size,rad,'1')
+square_maker('square2','#7a7a7a',sub_size,rad,'2')
+square_maker('square3','#737373',sub_size,rad,'3')
 square1=Image.open('square1.png')
 square2=Image.open('square2.png')
 square3=Image.open('square3.png')
