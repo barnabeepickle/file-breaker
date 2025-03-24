@@ -9,7 +9,7 @@ from typing_extensions import Annotated
 
 # some vars
 default_size=1024*1024*50
-app=typer.Typer()
+app=typer.Typer() # sets up this as a typer app
 
 # func
 @app.command(help='Generate a csv index dynamically for use in rebuilding.')
@@ -61,7 +61,7 @@ def file_join(path:str,
     # builder
     breaker.file_build(path,part_override,tar_override)
 
-# your a coder harry!
+# your a coder harry! (not a harry potter fan just thought it fit)
 if __name__=='__main__':
     app()
     # Typer is much easier than argparse and at least a little bit easier than Click, in my opinion
