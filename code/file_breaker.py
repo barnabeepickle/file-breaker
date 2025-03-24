@@ -4,7 +4,7 @@
 import os
 import tarfile
 import csv
-from convert_str import convert_str
+from minilib.convert_str import convert_str
 
 # you probably shouldn't uses this in production (i made this in like a week) 
 # and if you still want to use it in production take a look over it
