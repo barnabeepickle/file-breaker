@@ -4,7 +4,7 @@ import file_breaker as breaker
 import typer
 from typing_extensions import Annotated
 
-# this code is actually okay, could be better
+# this code is actually okay, could be better but its works rather well
 # (still made in like a half a week with a rewrite part way through)
 
 # some vars
@@ -19,6 +19,7 @@ def index_gen(path:str):
         path:   The path to the files in the form of the original file name.
     """
     out=breaker.index_gen(path) # out is a 2 bool list
+    # user feedback in the terminal
     if out[0]==True:
         print(f'A new part index file has been generated and has not over written the old one.')
     if out[1]==True:
@@ -34,6 +35,7 @@ def file_break(path:str,
         size:   Size of the resulting chunked files before compression.
         csv:    If a csv index file should be created.
     """
+    # TODO: Potentially add more options to this sub-command
     breaker.file_break(path,size,False,csv,True)
 
 @app.command(help='Rebuilds files that have been broken.')
@@ -62,32 +64,4 @@ def file_join(path:str,
 # your a coder harry!
 if __name__=='__main__':
     app()
-    # Typer is much easier than argparse and at least a little bit easier than Click
-import file_breaker
-import argparse
-import pathlib
-
-# argparse setup
-parser=argparse.ArgumentParser( # most of this is just taken directly from the documentation
-                    prog='file-breaker-cli',
-                    usage='%(prog)s [options]', # smarter code than I, now don't quote me on that, 
-                    # maybe quote me on that, this code comment has gone on long enough!
-                    description='A CLI interface for breaking files into segments.',
-                    epilog='"AS IS", WITHOUT WARRANTY')
-parser.add_argument('input_path',
-                    type=pathlib.Path,
-                    help='Path to the input file.')
-parser.add_argument('mode',
-                    type=str,
-                    help='If the input file should be broken or reassembled')
-parser.add_argument('-s', '--size',
-                    type=int,
-                    help='Specify the size in bytes of the output file.',
-                    default=1024*1024*50)
-parser.add_argument('-c','-csv',
-                    help='Disable the need for a CSV file (generates index on demand).',
-                    action='store_true')
-parser.parse_args() # TODO: implement this correctly
-
-# code
-# TODO: write the code that goes here
+    # Typer is much easier than argparse and at least a little bit easier than Click, in my opinion
