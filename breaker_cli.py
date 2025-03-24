@@ -4,6 +4,9 @@ import file_breaker as breaker
 import typer
 from typing_extensions import Annotated
 
+# this code is actually okay, could be better
+# (still made in like a half a week with a rewrite part way through)
+
 # some vars
 default_size=1024*1024*50
 app=typer.Typer()
@@ -15,7 +18,7 @@ def index_gen(path:str):
     Args:
         path:   The path to the files in the form of the original file name.
     """
-    out=breaker.index_gen(path)
+    out=breaker.index_gen(path) # out is a 2 bool list
     if out[0]==True:
         print(f'A new part index file has been generated and has not over written the old one.')
     if out[1]==True:
@@ -44,15 +47,15 @@ def file_join(path:str,
     # index generation handling
     out=False,False
     if gen==True:
-        out=breaker.index_gen(path)
+        out=breaker.index_gen(path) # out is a 2 bool list
     if out[0]==True:
         part_override=f'{path}.new'
     else:
-        part_override='null'
+        part_override='null' # null is filtered out on the lib side
     if out[1]==True:
         tar_override=f'{path}.new'
     else:
-        tar_override='null'
+        tar_override='null' # same as above
     # builder
     breaker.file_build(path,part_override,tar_override)
 
