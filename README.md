@@ -6,6 +6,7 @@ a number of functions relating to dividing files into different parts.
 ### Future
 - [x] Implement library of functions.
 - [x] Implement Command Line Interface for the library.
+- [ ] Update file structure.
 - [ ] Re-write/Re-structure library to be more class based.
 - [ ] Potential PyPi release.
 The above time line is a list of goals, not a list of promises.
