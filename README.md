@@ -10,6 +10,8 @@ a number of functions relating to dividing files into different parts.
 - [ ] Potential PyPi release.
 The above time line is a list of goals, not a list of promises.
 ### Environment
-This project was written using VSCode Studio, vscode.dev/VSCode Web, Microsoft Dev Tunnels, Python 3.13.2 and Typer.
+This project was written using VSCode Studio, vscode.dev/VSCode Web, Microsoft Dev Tunnels, Python 3.13.2 and Typer.<br/>
+Thanks to all of the wonderful people that have worked on these projects and for their continued commitments to the open-source commmunity.
+Special thanks to the Massachusetts Institute of Technology for their License.
 ## Support
-As stated in the LICENCE do not expect any support or warranty, this is purly a passion project.
+As stated in the LICENSE do not expect any support or warranty, this is purly a passion project.
