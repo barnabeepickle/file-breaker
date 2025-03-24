@@ -4,7 +4,11 @@
 import os
 import tarfile
 import csv
-from convert_str import convert_str as list_to_str # TODO: rename all list_to_str() uses to convert_str()
+from convert_str import convert_str
+
+# you probably shouldn't uses this in production (i made this in like a week) 
+# and if you still want to use it in production take a look over it
+# (submit changes if you have fixes for this mess)
 
 # func
 def file_break(input_file,chunk_size,compress=True,build_csv=True,remove_part=True):
@@ -80,20 +84,20 @@ def file_build(og_filename,part_csv_override='null',tar_csv_override='null'):
             reader=csv.reader(tar_index)
             tar_index=list(reader)
     for x in range(0,len(tar_index)):
-        tar_path=list_to_str(tar_index[x])
-        part_path=list_to_str(part_index[x])
+        tar_path=convert_str(tar_index[x])
+        part_path=convert_str(part_index[x])
         with tarfile.open(tar_path) as tar:
             tar.extract(part_path)
     x=0
     del(tar_path)
     with open(f'new.{og_filename}','ab') as final_file:
         for x in range(0,len(part_index)):
-            part_path=list_to_str(part_index[x])
+            part_path=convert_str(part_index[x])
             with open(part_path,'rb') as current_file:
                 final_file.write(current_file.read())
     x=0
     for x in range(0,len(part_index)):
-        os.remove(list_to_str(part_index[x]))
+        os.remove(convert_str(part_index[x]))
     del(x,part_path)
 
 def index_gen(file_path):
@@ -136,11 +140,3 @@ def index_gen(file_path):
     return part_new,tar_new
 
 # TODO: Convert these functions into a class, maybe
-
-# testing usage:
-#file_path='test.png' # input file path
-# chunk_size=1024*1024*50 # 50MB i think
-#chunk_size=100000 # testing file size input
-#file_break(file_path,chunk_size)
-#file_build('test.png')
-#index_gen('test.png')
