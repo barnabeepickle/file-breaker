@@ -140,11 +140,3 @@ def index_gen(file_path):
     return part_new,tar_new
 
 # TODO: Convert these functions into a class, maybe
-
-# testing usage:
-#file_path='test.png' # input file path
-# chunk_size=1024*1024*50 # 50MB i think
-#chunk_size=100000 # testing file size input
-#file_break(file_path,chunk_size)
-#file_build('test.png')
-#index_gen('test.png')
