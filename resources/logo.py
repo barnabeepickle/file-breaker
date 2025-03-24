@@ -26,24 +26,28 @@ def merge(im1: Image.Image, im2: Image.Image) -> Image.Image: # stolen from the 
     im.paste(im2, (im1.size[0], 0))
     return im
 
+# var
+rad=50
+size=(1000,1000)
+logo_size=(size[0]*3,size[1])
 # code
-with Image.new('RGBA',(256,256),'#818589') as square:
-    square=add_corners(square,100)
+with Image.new('RGBA',size,'#818589') as square:
+    square=add_corners(square,rad)
     square.save('square1.png')
-with Image.new('RGBA',(256,256),'#808080') as square:
-    square=add_corners(square,100)
+with Image.new('RGBA',size,'#7a7a7a') as square:
+    square=add_corners(square,rad)
     square.save('square2.png')
-with Image.new('RGBA',(256,256),'#BEBEBE') as square:
-    square=add_corners(square,100)
+with Image.new('RGBA',size,'#737373') as square:
+    square=add_corners(square,rad)
     square.save('square3.png')
 square1=Image.open('square1.png')
 square2=Image.open('square2.png')
 square3=Image.open('square3.png')
-squares=merge(square1,square2)
-squares=merge(squares,square3)
-with Image.new('RGBA',(768,256)) as logo:
-    squares=logo
-    squares.save('logo.png')
+with Image.new('RGBA',logo_size) as logo:
+    logo.paste(square1,(0,0))
+    logo.paste(square2,(size[0],0))
+    logo.paste(square3,(size[0]*2,0))
+    logo.save('logo.png')
 square1.close()
 square2.close()
 square3.close()
