@@ -1,6 +1,5 @@
 """Generates a logo for this project using Pillow."""
 # imports
-import PIL
 from PIL import Image,ImageDraw,ImageFont
 import os
 
