@@ -1,5 +1,5 @@
 # File-Breaker
-<img src="resources/logo.png" alt="File-Breaker Logo,  3 differently colored grey squares with rounded corners and white text,the numbers 1, 2 and 3 in the center of each." width=55% height=55%>
+<img src="resources/logo.png" alt="File-Breaker Logo, 3 differently colored grey squares with rounded corners and white text,the numbers 1, 2 and 3 in the center of each." width=60% height=60%>
 
 > Written in Python using open-source tools.
 ## About
@@ -13,7 +13,7 @@ File-Breaker is a Python library and command line tool that provides a few funct
 - [x] Add Logo
 - [ ] Re-write/Re-structure library to be more class based.
 - [ ] Multi-Platform Tests
-- [ ] Potential PyPi release.
+- [ ] Potential PyPi release. Should be usable as is for now.
 
 > [!IMPORTANT]
 > The above time line is a list of goals, not a list of promises.
