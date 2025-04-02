@@ -1,5 +1,4 @@
 """A python library for splitting a file into segments and reassembling them."""
-# TODO: figure out why pylint doesn't like the first line of this file
 # imports
 import os
 import tarfile

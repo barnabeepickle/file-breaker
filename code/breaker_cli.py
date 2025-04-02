@@ -20,10 +20,17 @@ def index_gen(path:str):
     """
     out=breaker.index_gen(path) # out is a 2 bool list
     # user feedback in the terminal
-    if out[0]==True:
-        print(f'A new part index file has been generated and has not over written the old one.')
-    if out[1]==True:
-        print(f'A new tar index file has been generated and has not over written the old one.')
+    if True in out:
+        print('A new ',end='')
+        if out:
+            print('part and tar index files',end='')
+        elif False in out:
+            if out[0]:
+                print('part',end='')
+            if out[1]:
+                print('tar',end='')
+            print(' index file ',end='')
+        print('has been generated and has not over written the old one.')
 
 @app.command(help='Segments files into different sections.')
 def file_break(path:str,
