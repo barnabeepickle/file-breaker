@@ -1,6 +1,6 @@
 """The CLI interface for file_breaker using typer."""
 # imports
-import lib.file_breaker as breaker
+import file_breaker as breaker
 import typer
 from typing_extensions import Annotated
 
@@ -42,7 +42,7 @@ def file_break(path:str,
         size:   Size of the resulting chunked files before compression.
         csv:    If a csv index file should be created.
     """
-    # TODO: Potentially add more options to this sub-command
+    # Potentially add more options to this sub-command
     breaker.file_break(path,size,False,csv,True)
 
 @app.command(help='Rebuilds files that have been broken.')
@@ -55,13 +55,13 @@ def file_join(path:str,
         """
     # index generation handling
     out=False,False
-    if gen==True:
+    if gen is True:
         out=breaker.index_gen(path) # out is a 2 bool list
-    if out[0]==True:
+    if out[0] is True:
         part_override=f'{path}.new'
     else:
         part_override='null' # null is filtered out on the lib side
-    if out[1]==True:
+    if out[1] is True:
         tar_override=f'{path}.new'
     else:
         tar_override='null' # same as above
