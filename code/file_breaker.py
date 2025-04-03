@@ -1,10 +1,9 @@
 """A python library for splitting a file into segments and reassembling them."""
-# TODO: figure out why pylint doesn't like the first line of this file
 # imports
 import os
 import tarfile
 import csv
-from mini.convert_str import convert_str
+from convert_str import convert_str
 
 # you probably shouldn't uses this in production (i made this in like a week) 
 # and if you still want to use it in production take a look over it
@@ -43,7 +42,7 @@ def file_break(input_file,chunk_size,compress=True,build_csv=True,remove_part=Tr
                 if compress==True: # this section of code handles compressing the part files
                     try: # use try to check if a tar file is there, will try to open it if so
                         tar=tarfile.open(f'{output_file}.tar','x:xz')
-                    except: # might change this later to have through an error or something like that
+                    except: # might change this later to have it not go through an error or something like that
                         tar=tarfile.open(f'{output_file}.tar','w:xz') # for now it just tries to open it
                     tar.add(output_file)
                     if remove_part==True:
