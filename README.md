@@ -1,5 +1,5 @@
 # File-Breaker
-<img src="https://github.com/barnabeepickle/file-breaker/blob/main/resources/logo.png" alt="File-Breaker Logo, 3 differently colored grey squares with rounded corners and white text,the numbers 1, 2 and 3 in the center of each." width=60% height=60%>
+<img src="https://github.com/barnabeepickle/file-breaker/blob/24bf8adf2e70805432e2d8100e058dba42c011c6/resources/logo.png" alt="File-Breaker Logo, 3 differently colored grey squares with rounded corners and white text,the numbers 1, 2 and 3 in the center of each." width=60% height=60%>
 
 > Written in Python using open-source tools.
 ## About
