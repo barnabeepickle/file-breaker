@@ -11,9 +11,11 @@ File-Breaker is a Python library and command line tool that provides a few funct
 - [x] Make a real README.md
 - [x] Update file structure.
 - [x] Add Logo
+- [x] Restructure files
+- [x] Multi-Platform Tests
+- [x] Builds sucessfully
+- [ ] Potential PyPi release.
 - [ ] Re-write/Re-structure library to be more class based.
-- [ ] Multi-Platform Tests
-- [ ] Potential PyPi release. Should be usable as is for now.
 
 > [!IMPORTANT]
 > The above time line is a list of goals, not a list of promises.
