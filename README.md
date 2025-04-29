@@ -5,6 +5,17 @@
 ## About
 File-Breaker is a Python library and command line tool that provides a few functions relating to dividing files into different parts.
 > The Logo was created using a Python script and the Pillow Module.
+[File-Breaker on PyPi](https://pypi.org/project/file-breaker/)
+
+## Installation
+To install run
+```
+pip install file_breaker
+```
+To import into your code
+```
+import file_breaker
+```
 ### Future
 - [x] Implement library of functions.
 - [x] Implement Command Line Interface for the library.
