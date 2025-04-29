@@ -14,7 +14,7 @@ File-Breaker is a Python library and command line tool that provides a few funct
 - [x] Restructure files
 - [x] Multi-Platform Tests
 - [x] Builds sucessfully
-- [ ] Potential PyPi release.
+- [x] Potential PyPi release.
 - [ ] Re-write/Re-structure library to be more class based.
 
 > [!IMPORTANT]
