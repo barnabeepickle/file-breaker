@@ -2,30 +2,26 @@
 <img src="https://github.com/barnabeepickle/file-breaker/blob/main/resources/logo.png" alt="File-Breaker Logo, 3 differently colored grey squares with rounded corners and white text,the numbers 1, 2 and 3 in the center of each." width=60% height=60%>
 
 > Written in Python using open-source tools.
+## Installation
+To install run
+```
+pip install file_breaker
+```
+To import into your code
+```
+import file_breaker
+```
+
 ## About
 File-Breaker is a Python library and command line tool that provides a few functions relating to dividing files into different parts.
 > The Logo was created using a Python script and the Pillow Module.
-### Future
-- [x] Implement library of functions.
-- [x] Implement Command Line Interface for the library.
-- [x] Make a real README.md
-- [x] Update file structure.
-- [x] Add Logo
-- [x] Restructure files
-- [x] Multi-Platform Tests
-- [x] Builds sucessfully
-- [ ] Potential PyPi release.
-- [ ] Re-write/Re-structure library to be more class based.
 
-> [!IMPORTANT]
-> The above time line is a list of goals, not a list of promises.
+### Version System
+The version of the library is determined by the commit number.
+> Example: file-breaker 85 (with 85 being the number of commits in this version.)
+
 ### Environment
-This project was created using VSCode Studio, vscode.dev/VSCode Web, Microsoft Dev Tunnels, Git, Github, Python 3.13.2, Typer and Pillow (for the logo).
-> [!NOTE]
+This project was created using VSCode Studio, vscode.dev/VSCode Web, Microsoft Dev Tunnels, Git, Github, Python 3.13, Typer and Pillow (for the logo).
 > Thanks to all of the wonderful people that have worked on these projects and for their continued commitments to the open-source commmunity.
 
-> [!NOTE]
 > Special thanks to the Massachusetts Institute of Technology for their open-source License.
-## Support
-> [!WARNING]
-> As stated in the LICENSE do not expect any support or warranty, this is purly a passion project.
