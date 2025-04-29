@@ -3,12 +3,12 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "file-breaker"
-version = "72"
+name = "file_breaker"
+version = "78"
 authors = [
   { name="barnabeepickle", email="picklebarnabee@gmail.com" },
 ]
-description = "A small example package"
+description = "A package for breaking files into parts and reassembling them."
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
