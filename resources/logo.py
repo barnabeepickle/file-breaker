@@ -44,7 +44,7 @@ with Image.new('RGBA',logo_size) as logo:
     logo.paste(square1,(0,0))
     logo.paste(square2,(sub_size[0],0))
     logo.paste(square3,(sub_size[0]*2,0))
-    logo.save('logo.png')
+    logo.save('logo_source.png')
 square1.close()
 square2.close()
 square3.close()
