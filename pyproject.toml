@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "file-breaker"
+version = "72"
+authors = [
+  { name="barnabeepickle", email="picklebarnabee@gmail.com" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/barnabeepickle/file-breaker"
+Issues = "https://github.com/barnabeepickle/file-breaker/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/file-breaker"]
