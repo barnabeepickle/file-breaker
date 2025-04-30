@@ -9,12 +9,15 @@ pip install file_breaker
 ```
 To import into your code
 ```
-import file_breaker
+module_name='file-breaker'
+file_breaker=__import__(module_name,fromlist=['*'])
 ```
 
 ## About
 File-Breaker is a Python library and command line tool that provides a few functions relating to dividing files into different parts.
 > The Logo was created using a Python script and the Pillow Module.
+
+> Please do not uses this in production without reviewing the [source code](https://github.com/barnabeepickle/file-breaker).
 
 ### Version System
 The version of the library is determined by the commit number.

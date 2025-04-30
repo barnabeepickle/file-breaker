@@ -3,8 +3,8 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "file_breaker"
-version = "93"
+name = "file-breaker"
+version = "94"
 authors = [
   { name="barnabeepickle", email="picklebarnabee@gmail.com" },
 ]
@@ -23,4 +23,4 @@ Homepage = "https://github.com/barnabeepickle/file-breaker"
 Issues = "https://github.com/barnabeepickle/file-breaker/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/file_breaker"]
+packages = ["src/file-breaker"]

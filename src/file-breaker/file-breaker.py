@@ -5,7 +5,8 @@ import tarfile
 import csv
 from convert_str import convert_str
 
-# you probably shouldn't uses this in production (i made this in like a week) 
+# you probably shouldn't uses this in production (i made this in like a week which 
+# later turned into working on it inconsistently over 2 months) 
 # and if you still want to use it in production take a look over it
 # (submit changes if you have fixes for this mess)
 

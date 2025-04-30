@@ -1,6 +1,7 @@
 """The CLI interface for file_breaker using typer."""
 # imports
-import file_breaker as breaker
+module_name='file-breaker'
+breaker=__import__(module_name,fromlist=['*'])
 import typer
 from typing_extensions import Annotated
 

@@ -7,6 +7,8 @@ File-Breaker is a Python library and command line tool that provides a few funct
 > The Logo was created using a Python script and the Pillow Module.
 [File-Breaker on PyPi](https://pypi.org/project/file-breaker/)
 
+> Please do not uses this in production without reviewing the [source code](https://github.com/barnabeepickle/file-breaker).
+
 ## Installation
 To install run
 ```
