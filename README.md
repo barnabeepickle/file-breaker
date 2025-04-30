@@ -12,11 +12,12 @@ File-Breaker is a Python library and command line tool that provides a few funct
 ## Installation
 To install run
 ```
-pip install file_breaker
+pip install file-breaker
 ```
 To import into your code
 ```
-import file_breaker
+module_name='file-breaker'
+file_breaker=__import__(module_name,fromlist=['*'])
 ```
 ### Future
 - [x] Implement library of functions.

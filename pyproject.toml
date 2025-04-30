@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "file-breaker"
-version = "94"
+version = "95"
 authors = [
   { name="barnabeepickle", email="picklebarnabee@gmail.com" },
 ]

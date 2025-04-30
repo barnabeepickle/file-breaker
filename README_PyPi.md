@@ -5,7 +5,7 @@
 ## Installation
 To install run
 ```
-pip install file_breaker
+pip install file-breaker
 ```
 To import into your code
 ```
